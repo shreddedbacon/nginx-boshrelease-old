@@ -1,0 +1,34 @@
+---
+name: nginx
+
+releases:
+- name: nginx
+  version: latest
+
+instance_groups:
+- name: nginx
+  instances: 1
+  resource_pool: default
+  vm_type: default
+  azs: [z1]
+  persistent_disk_type: default
+  networks:
+  - name: default
+    static_ips:
+      - 10.244.0.50
+  jobs:
+  - name: nginx
+    release: nginx
+
+properties:
+  nginx_worker_processes: 1
+  nginx_worker_connections: 1024
+  nginx_server_name: localtest.local
+  nginx_docroot: /var/vcap/store/nginx/www/document_root
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  serial: false
+  canary_watch_time: 1000-60000
+  update_watch_time: 1000-60000

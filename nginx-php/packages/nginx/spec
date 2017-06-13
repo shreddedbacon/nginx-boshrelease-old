@@ -1,0 +1,6 @@
+---
+name: nginx
+
+dependencies: []
+
+files: [nginx/nginx-1.12.0.tar.gz, nginx/zlib-1.2.11.tar.gz, nginx/pcre-8.40.tar.gz]

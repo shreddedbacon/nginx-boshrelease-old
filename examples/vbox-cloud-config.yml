@@ -1,0 +1,36 @@
+azs:
+- name: z1
+
+networks:
+- name: default
+  type: manual
+  subnets:
+  - azs: [z1]
+    range: 10.244.0.0/24
+    reserved: [10.244.0.1]
+    static: [10.244.0.2 - 10.244.0.99]
+- name: nginx
+  type: manual
+  subnets:
+  - azs: [z1]
+    range: 10.244.1.0/24
+    reserved: [10.244.1.1]
+    static: [10.244.1.2 - 10.244.1.99]
+
+resource_pools:
+- name: default
+  network: default
+  stemcell:
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+    version: latest
+
+compilation:
+  workers: 1
+  az: z1
+  network: default
+  cloud_properties: {}
+
+disk_types:
+- name: default
+  disk_size: 1024
+

@@ -1,0 +1,21 @@
+worker_processes <%= p('nginx_worker_processes') %>;
+error_log /var/vcap/sys/log/nginx/error.log   info;
+events {
+  worker_connections <%= p('nginx_worker_connections') %>;
+}
+http {
+  include /var/vcap/packages/nginx/conf/mime.types;
+  default_type  application/octet-stream;
+  sendfile        on;
+  keepalive_timeout  65;
+  server_names_hash_bucket_size 64;
+  server {
+    server_name <%= p('nginx_server_name') %>; 
+    listen 80;
+    access_log /var/vcap/sys/log/nginx/access.log;
+    error_log /var/vcap/sys/log/nginx/error.log;
+    root <%= p('nginx_docroot') %>;
+    index index.html index.htm;
+  }
+}
+

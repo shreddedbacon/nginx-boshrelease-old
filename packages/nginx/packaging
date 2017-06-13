@@ -1,0 +1,25 @@
+set -e -x
+
+echo "Extracting pcre..."
+tar xzvf nginx/pcre-8.40.tar.gz
+
+echo "Extracting zlib..."
+tar xzvf nginx/zlib-1.2.11.tar.gz
+
+echo "Extracting nginx..."
+tar xzvf nginx/nginx-1.12.0.tar.gz
+
+echo "Building nginx..."
+
+pushd nginx-1.12.0
+  ./configure \
+    --with-debug \
+    --prefix=${BOSH_INSTALL_TARGET} \
+    --with-pcre=../pcre-8.40 \
+    --with-zlib=../zlib-1.2.11 \
+    --with-http_dav_module \
+    --with-http_realip_module \
+
+  make
+  make install
+popd

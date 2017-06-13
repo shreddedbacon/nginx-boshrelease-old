@@ -1,0 +1,26 @@
+---
+name: nginx
+
+templates:
+  ctl.sh: bin/ctl
+  nginx.conf.erb: etc/nginx.conf
+  pre-start.erb: bin/pre-start
+  fastcgi_params.erb: etc/fastcgi_params
+
+
+packages:
+- nginx
+
+properties:
+  nginx_worker_processes:
+    description: Nginx worker processes count
+    default: 1
+  nginx_worker_connections:
+    description: Nginx worker connections
+    default: 1024
+  nginx_docroot:
+    description: Nginx docroot
+    default: /var/vcap/store/nginx/www/document_root
+  nginx_server_name:
+    description: domain name(s)
+    default: localtest.local

@@ -1,0 +1,17 @@
+
+- type: replace
+  path: /instance_groups/name=nginx2?
+  value:
+    name: nginx2
+    instances: 1
+    resource_pool: default
+    vm_type: default
+    azs: [z1]
+    persistent_disk_type: default
+    networks:
+    - name: nginx
+      static_ips:
+        - 10.244.1.50
+    jobs:
+    - name: nginx
+      release: nginx
