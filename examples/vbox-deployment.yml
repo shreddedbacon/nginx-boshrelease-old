@@ -5,7 +5,7 @@ releases:
 - name: nginx
   version: latest
 
-stemcell:
+stemcells:
 - alias: default
   name: bosh-warden-boshlite-ubuntu-trusty-go_agent
   version: latest

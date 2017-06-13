@@ -17,6 +17,8 @@ networks:
     reserved: [10.244.1.1]
     static: [10.244.1.2 - 10.244.1.99]
 
+vm_types:
+- name: default
 #resource_pools:
 #- name: default
 #  network: default
