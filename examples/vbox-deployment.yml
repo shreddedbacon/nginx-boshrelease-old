@@ -5,10 +5,16 @@ releases:
 - name: nginx
   version: latest
 
+stemcell:
+- alias: default
+  name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+  version: latest
+
 instance_groups:
 - name: nginx
   instances: 1
-  resource_pool: default
+#  resource_pool: default
+  stemcell: default
   vm_type: default
   azs: [z1]
   persistent_disk_type: default
