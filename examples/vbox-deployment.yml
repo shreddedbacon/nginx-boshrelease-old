@@ -4,6 +4,8 @@ name: nginx
 releases:
 - name: nginx
   version: latest
+- name: website
+  version: latest
 
 stemcells:
 - alias: default
@@ -25,6 +27,8 @@ instance_groups:
   jobs:
   - name: nginx
     release: nginx
+  - name: website
+    release: website
 
 properties:
   nginx_worker_processes: 1
