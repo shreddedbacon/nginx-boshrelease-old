@@ -3,7 +3,7 @@ NGINX_DIR=<%= p('nginx_docroot') %>
 if [ ! -d $NGINX_DIR ]; then
   mkdir -p $NGINX_DIR
   cd $NGINX_DIR
-  echo "It verks again!" > index.html
+  echo "It verks again?" > index.html
   chown -R vcap:vcap $NGINX_DIR
 fi
 

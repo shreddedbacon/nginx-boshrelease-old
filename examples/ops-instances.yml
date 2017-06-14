@@ -5,11 +5,9 @@
       static_ips:
       - 10.244.0.50
       - 10.244.0.51
-      - 10.244.0.52
-      - 10.244.0.53
 
 - type: replace
   path: /instance_groups/name=nginx/instances
-  value: 4
+  value: 2
 
 
