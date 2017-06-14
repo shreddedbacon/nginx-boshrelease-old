@@ -1,6 +1,0 @@
----
-name: php
-
-dependencies: []
-
-files: [php/php-5.6.30.tar.gz]

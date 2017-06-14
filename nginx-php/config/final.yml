@@ -1,6 +1,0 @@
----
-name: nginx
-blobstore:
-  provider: local
-  options:
-    blobstore_path: /tmp/bosh-nginx

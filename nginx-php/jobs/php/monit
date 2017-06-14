@@ -1,5 +1,0 @@
-check process php
-  with pidfile /var/vcap/sys/run/php/php-fpm.pid
-  start program "/var/vcap/jobs/php/bin/ctl start"
-  stop program "/var/vcap/jobs/php/bin/ctl stop"
-  group vcap
