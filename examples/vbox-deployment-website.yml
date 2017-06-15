@@ -4,6 +4,8 @@ name: nginx
 releases:
 - name: nginx
   version: latest
+- name: website
+  version: latest
 
 stemcells:
 - alias: default
@@ -23,6 +25,8 @@ instance_groups:
     static_ips:
       - 10.244.0.50
   jobs:
+  - name: website
+    release: website
   - name: nginx
     release: nginx
 
